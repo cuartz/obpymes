@@ -1,0 +1,52 @@
+PRACTICA 1
+
+Crear applicación desde Spring Initializr
+
+https://start.spring.io/
+Seleccionar dependencias:
+-Web
+-Config Client
+-Actuator
+
+Descomprimir en carpeta
+
+Configurar nexus Serenity
+En C:\Users\TU_USUARIO\.m2\settings.xml
+
+Introducir 
+
+<mirrors>
+			<mirror>
+                <id>serenity</id>
+                <name>Serenity Repository</name>
+              <url>https://nexus.ci.gsnet.corp/nexus/content/groups/public/</url>
+                <mirrorOf>*</mirrorOf>
+          </mirror>
+ </mirrors> 
+
+Build del proyecto
+
+mvn package
+
+Probar
+mvn spring-boot:run
+Ver que arranca en el puerto 8080
+
+Crear un fichero gitignore
+https://www.gitignore.io/
+Poner Maven y el IDE a usar. Por ejemplo Eclipse
+
+Crear en el raíz un fichero .gitignore 
+echo '' > .gitignore
+y copiar el contenido generado en gitignore.io
+
+
+Subir proyecto a Gitlab
+Crear el repositorio en Gitlab dentro de un grupo para el proyecto
+
+En local, desde el directorio del proyecto:
+-Escribir los comandos que vienen en gitlab al crear el repositorio. Ojo com git commit. Mejor git commit -m "Primer commit"
+
+
+
+
