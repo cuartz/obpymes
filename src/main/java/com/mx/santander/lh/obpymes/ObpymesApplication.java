@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.retry.annotation.EnableRetry;
 
+@EnableRetry
 @SpringBootApplication
 @ComponentScan(basePackages={"com.mx.santander.lh.obpymes"})
 @EnableAutoConfiguration

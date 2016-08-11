@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
 	@ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR, reason="Server error")
 	@ExceptionHandler(Exception.class)
 	public String handleSQLException(HttpServletRequest request, Exception ex){
-		logger.info("General exception="+request.getRequestURL());
+		logger.info("General exception="+ex.getClass());
 		return "Server error";
 	}
 
