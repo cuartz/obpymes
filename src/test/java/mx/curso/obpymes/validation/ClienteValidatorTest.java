@@ -1,8 +1,6 @@
 package mx.curso.obpymes.validation;
 
 
-import mx.curso.obpymes.entities.Cliente;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -12,6 +10,9 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.util.Assert;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
+
+import com.mx.santander.lh.obpymes.entities.Cliente;
+import com.mx.santander.lh.obpymes.validation.ClienteValidator;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

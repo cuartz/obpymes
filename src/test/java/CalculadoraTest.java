@@ -9,8 +9,9 @@ import org.springframework.mock.web.MockServletContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import com.mx.santander.lh.obpymes.servicios.Calculadora;
+
 import junit.framework.Assert;
-import mx.curso.obpymes.servicios.Calculadora;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MockServletContext.class)

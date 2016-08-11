@@ -28,11 +28,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.google.gson.Gson;
-
-
-import mx.curso.obpymes.entities.Cliente;
-import mx.curso.obpymes.servicios.ServicioListaNegra;
-import mx.curso.obpymes.servicios.ServicioNoCliente;
+import com.mx.santander.lh.obpymes.controllers.SolicitudController;
+import com.mx.santander.lh.obpymes.entities.Cliente;
+import com.mx.santander.lh.obpymes.servicios.ServicioListaNegra;
+import com.mx.santander.lh.obpymes.servicios.ServicioNoCliente;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MockServletContext.class)
