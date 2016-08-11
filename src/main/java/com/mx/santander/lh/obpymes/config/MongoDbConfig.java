@@ -12,7 +12,7 @@ import com.mongodb.MongoURI;
 
 
 @Configuration
-@EnableMongoRepositories(basePackages = "mx.curso.obpymes.mongo")
+@EnableMongoRepositories(basePackages = "com.mx.santander.lh.obpymes.repository")
 public class MongoDbConfig extends AbstractMongoConfiguration {
 
 	@Value("${url.mongo}")
