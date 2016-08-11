@@ -5,16 +5,19 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.mock.web.MockServletContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.github.fakemongo.Fongo;
 import com.mongodb.Mongo;
+import com.mx.santander.lh.obpymes.ObpymesApplication;
 import com.mx.santander.lh.obpymes.entities.Conditions;
 import com.mx.santander.lh.obpymes.entities.ConfigurableParameters;
 import com.mx.santander.lh.obpymes.entities.Documents;
@@ -29,8 +32,9 @@ import com.mx.santander.lh.obpymes.services.ObtenRequisitosService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration
-@WebAppConfiguration
+@SpringApplicationConfiguration(classes = ObpymesApplication.class)
+//@ContextConfiguration
+//@WebAppConfiguration
 
 public class ObtenerRequisitosServiceTest {
 	
@@ -50,7 +54,7 @@ public class ObtenerRequisitosServiceTest {
 	
 	 @Configuration
 		@EnableMongoRepositories
-		@ComponentScan( { "com.mx.santander.lh.obpymes;com.mx.santander.lh.obpymes.config;" })
+		//@ComponentScan( { "com.mx.santander.lh.obpymes;com.mx.santander.lh.obpymes.config;" })
 		static class MongoConfiguration extends AbstractMongoConfiguration {
 
 			@Override
