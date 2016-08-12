@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: obpymes-back
+  cloud:
+    config:
+      enable: true
+      uri: http://obp-config-service:8080/config
+      name: ${spring.application.name}
+      label: v1
+      profile: dev

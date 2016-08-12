@@ -1,10 +1,15 @@
 package com.mx.santander.lh.obpymes.services;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mx.santander.lh.obpymes.entities.Conditions;
+import com.mx.santander.lh.obpymes.entities.ConfigurableParameters;
+import com.mx.santander.lh.obpymes.entities.Documents;
 import com.mx.santander.lh.obpymes.entities.Requirements;
 import com.mx.santander.lh.obpymes.excepciones.ObPymeServiceException;
 import com.mx.santander.lh.obpymes.repository.ConditionsRepository;
@@ -28,7 +33,7 @@ public class ObtenRequisitosServiceImpl implements ObtenRequisitosService{
 	
 	
 	
-	public Requirements getRequisitos() throws ObPymeServiceException{
+	public Requirements getRequirements() throws ObPymeServiceException{
 		logger.info("Intentos");
 		Requirements requisitos=new Requirements();
 		requisitos.setConditions(conditionsRepository.findAll());
@@ -37,25 +42,24 @@ public class ObtenRequisitosServiceImpl implements ObtenRequisitosService{
 		return requisitos;
 	}
 	
-	public Requirements getComditions() throws ObPymeServiceException{
+	public List<Conditions> getConditions() throws ObPymeServiceException{
 		logger.info("Intentosc conds");
-		Requirements requisitos=new Requirements();
-		requisitos.setConditions(conditionsRepository.findAll());
-		return requisitos;
+		return conditionsRepository.findAll();
 	}
 	
-	public Requirements getDocumentos() throws ObPymeServiceException{
+	public List<Documents> getDocuments() throws ObPymeServiceException{
 		logger.info("Intentos docs");
-		Requirements requisitos=new Requirements();
-		requisitos.setDocuments(requiredDocumentsRepository.findAll());
-		return requisitos;
+		return requiredDocumentsRepository.findAll();
 	}
 	
-	public Requirements getDays() throws ObPymeServiceException{
+	public String getDays() throws ObPymeServiceException{
 		logger.info("Intentos days");
-		Requirements requisitos=new Requirements();
-		requisitos.setDays(configurableParametersRepository.findByName("DaysToInactive").getValue());
-		return requisitos;
+		ConfigurableParameters configurableParameters=(configurableParametersRepository.findByName("DaysToInactive"));
+		if(configurableParameters!=null){
+			return configurableParameters.getValue();
+		}
+		throw new ObPymeServiceException();
+		
 	}
 
 }

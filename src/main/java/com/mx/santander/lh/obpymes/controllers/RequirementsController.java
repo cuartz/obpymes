@@ -33,7 +33,7 @@ public class RequirementsController {
 			
 		try{
 			RequirementsControllerResponse requirementsControllerResponse=new RequirementsControllerResponse();
-			requirementsControllerResponse.setBody(obtenRequisitosService.getRequisitos());
+			requirementsControllerResponse.setBody(obtenRequisitosService.getRequirements());
 			requirementsControllerResponse.setCode("200");
 			logger.info("Requirement get succesful");
 			logger.info(((Requirements)requirementsControllerResponse.getBody()).getDocuments().get(0).getContent());
@@ -54,7 +54,7 @@ public class RequirementsController {
 		
 		try{
 			RequirementsControllerResponse requirementsControllerResponse=new RequirementsControllerResponse();
-			requirementsControllerResponse.setBody(obtenRequisitosService.getDocumentos());
+			requirementsControllerResponse.setBody(obtenRequisitosService.getDocuments());
 			requirementsControllerResponse.setCode("200");
 			return ResponseEntity.status(HttpStatus.OK).body(new Gson().toJson(requirementsControllerResponse));
 			
@@ -73,7 +73,7 @@ public class RequirementsController {
 		
 		try{
 			RequirementsControllerResponse requirementsControllerResponse=new RequirementsControllerResponse();
-			requirementsControllerResponse.setBody(obtenRequisitosService.getComditions());
+			requirementsControllerResponse.setBody(obtenRequisitosService.getConditions());
 			requirementsControllerResponse.setCode("200");
 			return ResponseEntity.status(HttpStatus.OK).body(new Gson().toJson(requirementsControllerResponse));
 			

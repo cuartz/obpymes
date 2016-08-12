@@ -57,6 +57,9 @@ public class RequirementsControllerTest {
 			MockitoAnnotations.initMocks(this);
 			mockMvc= MockMvcBuilders.standaloneSetup(requirementsController).build();
 			Requirements requirements=new Requirements();
+			Requirements requirementsDocs=new Requirements();
+			Requirements requirementsConds=new Requirements();
+			Requirements requirementsDays=new Requirements();
 			List<Conditions> conditions=new ArrayList<Conditions>();
 			List<Documents> documents=new ArrayList<Documents>();
 			List<ConfigurableParameters> configurableParameters=new ArrayList<ConfigurableParameters>();
@@ -66,12 +69,14 @@ public class RequirementsControllerTest {
 			documents.add(new Documents("2","<b>Comprobante fiscal</b>, recuerda que no debe superar el tama&ntilde;o m&aacute;ximo de 1 MB"));
 			documents.add(new Documents("3","<b>Comprobante de domicilio</b>, no puede tener una antig&uuml;edad de m&aacute;s de 3  meses, recuerda que no debe superar el tama&ntilde;o m&aacute;ximo de 1 MB.<br><ul><li>Recibo de luz</li><li>Recibo de agua</li><li>Recibo de telefon&iacute;a fija (telmex, izzy, axtel, total play).</li><li>Estado de cuenta bancario (Santander, Bancomer, HSBC, Banregio,Scotiabank, Banorte, Banamex)</li></ul>"));
 			configurableParameters.add(new ConfigurableParameters("1","DaysToInactive","7"));
-	  
+			requirements.setDocuments(documents);
 			requirements.setConditions(conditions);
 			requirements.setDays("7");
-			requirements.setDocuments(documents);
 			
-			when(obtenRequisitosService.getRequisitos()).thenReturn(requirements);
+			when(obtenRequisitosService.getRequirements()).thenReturn(requirements);
+			when(obtenRequisitosService.getDocuments()).thenReturn(documents);
+			when(obtenRequisitosService.getConditions()).thenReturn(conditions);
+			when(obtenRequisitosService.getDays()).thenReturn("7");
 			
 		}
 		
@@ -84,7 +89,7 @@ public class RequirementsControllerTest {
 			.andReturn();
 			System.out.println(result.getResponse().getContentAsString());
 			Mockito.reset(obtenRequisitosService);
-			when(obtenRequisitosService.getRequisitos()).thenThrow(ObPymeServiceException.class);
+			when(obtenRequisitosService.getRequirements()).thenThrow(ObPymeServiceException.class);
 			result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/all").accept(MediaType.APPLICATION_JSON))
 					.andExpect(MockMvcResultMatchers.status().isOk()).
 					andExpect(MockMvcResultMatchers.jsonPath("$.message",CoreMatchers.equalTo("No se pudieron recuperar los requisitos")))
@@ -94,41 +99,41 @@ public class RequirementsControllerTest {
 			
 		}
 		
-//		
-//		@Test
-//		public void testGetRequirementsDocuments() throws Exception{
-//			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/documents").accept(MediaType.APPLICATION_JSON))
-//			.andExpect(MockMvcResultMatchers.status().isOk())
-//			.andExpect(MockMvcResultMatchers.jsonPath("$.body",Matchers.hasSize(3)))
-//			//.andExpect(MockMvcResultMatchers.jsonPath("$.code",CoreMatchers.equalTo("200")))
-//			.andReturn();
-//			System.out.println(result.getResponse().getContentAsString());
-//			
-//			
-//		}
-//		
-//		@Test
-//		public void testGetRequirementsRequirements() throws Exception{
-//			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/conditions").accept(MediaType.APPLICATION_JSON))
-//			.andExpect(MockMvcResultMatchers.status().isOk())
-//			.andExpect(MockMvcResultMatchers.jsonPath("$.body",Matchers.hasSize(2))).
-//			andExpect(MockMvcResultMatchers.jsonPath("$.code",CoreMatchers.equalTo("200")))
-//			.andReturn();
-//			System.out.println(result.getResponse().getContentAsString());
-//			
-//			
-//		}
-//		
-//		@Test
-//		public void testGetRequirementsDays() throws Exception{
-//			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/days").accept(MediaType.APPLICATION_JSON))
-//			.andExpect(MockMvcResultMatchers.status().isOk())
-//			.andExpect(MockMvcResultMatchers.jsonPath("$.body",CoreMatchers.equalTo("7")))
-//			.andReturn();
-//			System.out.println(result.getResponse().getContentAsString());
-//			
-//			
-//		}
+		
+		@Test
+		public void testGetRequirementsDocuments() throws Exception{
+			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/documents").accept(MediaType.APPLICATION_JSON))
+			.andExpect(MockMvcResultMatchers.status().isOk())
+			.andExpect(MockMvcResultMatchers.jsonPath("$.body",Matchers.hasSize(3)))
+			//.andExpect(MockMvcResultMatchers.jsonPath("$.code",CoreMatchers.equalTo("200")))
+			.andReturn();
+			System.out.println(result.getResponse().getContentAsString());
+			
+			
+		}
+		
+		@Test
+		public void testGetRequirementsRequirements() throws Exception{
+			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/conditions").accept(MediaType.APPLICATION_JSON))
+			.andExpect(MockMvcResultMatchers.status().isOk())
+			.andExpect(MockMvcResultMatchers.jsonPath("$.body",Matchers.hasSize(2))).
+			andExpect(MockMvcResultMatchers.jsonPath("$.code",CoreMatchers.equalTo("200")))
+			.andReturn();
+			System.out.println(result.getResponse().getContentAsString());
+			
+			
+		}
+		
+		@Test
+		public void testGetRequirementsDays() throws Exception{
+			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/days").accept(MediaType.APPLICATION_JSON))
+			.andExpect(MockMvcResultMatchers.status().isOk())
+			.andExpect(MockMvcResultMatchers.jsonPath("$.body",CoreMatchers.equalTo("7")))
+			.andReturn();
+			System.out.println(result.getResponse().getContentAsString());
+			
+			
+		}
 		
 	
 		

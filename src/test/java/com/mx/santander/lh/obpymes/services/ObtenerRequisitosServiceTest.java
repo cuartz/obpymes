@@ -82,7 +82,7 @@ public class ObtenerRequisitosServiceTest {
 		requiredDocumentsRepository.save(new Documents("3","<b>Comprobante de domicilio</b>, no puede tener una antig&uuml;edad de m&aacute;s de 3  meses, recuerda que no debe superar el tama&ntilde;o m&aacute;ximo de 1 MB.<br><ul><li>Recibo de luz</li><li>Recibo de agua</li><li>Recibo de telefon&iacute;a fija (telmex, izzy, axtel, total play).</li><li>Estado de cuenta bancario (Santander, Bancomer, HSBC, Banregio,Scotiabank, Banorte, Banamex)</li></ul>"));
 		configurableParametersRepository.save(new ConfigurableParameters("1","DaysToInactive","7"));
   
-        Requirements requisitos=obtenRequisitosService.getRequisitos();
+        Requirements requisitos=obtenRequisitosService.getRequirements();
         assertEquals(2,requisitos.getConditions().size());
         assertEquals(3,requisitos.getDocuments().size());
         
