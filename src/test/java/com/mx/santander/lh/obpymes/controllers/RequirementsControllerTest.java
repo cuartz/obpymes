@@ -94,41 +94,41 @@ public class RequirementsControllerTest {
 			
 		}
 		
-		
-		@Test
-		public void testGetRequirementsDocuments() throws Exception{
-			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/documents").accept(MediaType.APPLICATION_JSON))
-			.andExpect(MockMvcResultMatchers.status().isOk())
-			.andExpect(MockMvcResultMatchers.jsonPath("$.body",Matchers.hasSize(3)))
-			//.andExpect(MockMvcResultMatchers.jsonPath("$.code",CoreMatchers.equalTo("200")))
-			.andReturn();
-			System.out.println(result.getResponse().getContentAsString());
-			
-			
-		}
-		
-		@Test
-		public void testGetRequirementsRequirements() throws Exception{
-			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/conditions").accept(MediaType.APPLICATION_JSON))
-			.andExpect(MockMvcResultMatchers.status().isOk())
-			.andExpect(MockMvcResultMatchers.jsonPath("$.body",Matchers.hasSize(2))).
-			andExpect(MockMvcResultMatchers.jsonPath("$.code",CoreMatchers.equalTo("200")))
-			.andReturn();
-			System.out.println(result.getResponse().getContentAsString());
-			
-			
-		}
-		
-		@Test
-		public void testGetRequirementsDays() throws Exception{
-			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/days").accept(MediaType.APPLICATION_JSON))
-			.andExpect(MockMvcResultMatchers.status().isOk())
-			.andExpect(MockMvcResultMatchers.jsonPath("$.body",CoreMatchers.equalTo("7")))
-			.andReturn();
-			System.out.println(result.getResponse().getContentAsString());
-			
-			
-		}
+//		
+//		@Test
+//		public void testGetRequirementsDocuments() throws Exception{
+//			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/documents").accept(MediaType.APPLICATION_JSON))
+//			.andExpect(MockMvcResultMatchers.status().isOk())
+//			.andExpect(MockMvcResultMatchers.jsonPath("$.body",Matchers.hasSize(3)))
+//			//.andExpect(MockMvcResultMatchers.jsonPath("$.code",CoreMatchers.equalTo("200")))
+//			.andReturn();
+//			System.out.println(result.getResponse().getContentAsString());
+//			
+//			
+//		}
+//		
+//		@Test
+//		public void testGetRequirementsRequirements() throws Exception{
+//			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/conditions").accept(MediaType.APPLICATION_JSON))
+//			.andExpect(MockMvcResultMatchers.status().isOk())
+//			.andExpect(MockMvcResultMatchers.jsonPath("$.body",Matchers.hasSize(2))).
+//			andExpect(MockMvcResultMatchers.jsonPath("$.code",CoreMatchers.equalTo("200")))
+//			.andReturn();
+//			System.out.println(result.getResponse().getContentAsString());
+//			
+//			
+//		}
+//		
+//		@Test
+//		public void testGetRequirementsDays() throws Exception{
+//			MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/requirements/days").accept(MediaType.APPLICATION_JSON))
+//			.andExpect(MockMvcResultMatchers.status().isOk())
+//			.andExpect(MockMvcResultMatchers.jsonPath("$.body",CoreMatchers.equalTo("7")))
+//			.andReturn();
+//			System.out.println(result.getResponse().getContentAsString());
+//			
+//			
+//		}
 		
 	
 		

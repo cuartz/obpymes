@@ -36,5 +36,26 @@ public class ObtenRequisitosServiceImpl implements ObtenRequisitosService{
 		requisitos.setDays(configurableParametersRepository.findByName("DaysToInactive").getValue());
 		return requisitos;
 	}
+	
+	public Requirements getComditions() throws ObPymeServiceException{
+		logger.info("Intentosc conds");
+		Requirements requisitos=new Requirements();
+		requisitos.setConditions(conditionsRepository.findAll());
+		return requisitos;
+	}
+	
+	public Requirements getDocumentos() throws ObPymeServiceException{
+		logger.info("Intentos docs");
+		Requirements requisitos=new Requirements();
+		requisitos.setDocuments(requiredDocumentsRepository.findAll());
+		return requisitos;
+	}
+	
+	public Requirements getDays() throws ObPymeServiceException{
+		logger.info("Intentos days");
+		Requirements requisitos=new Requirements();
+		requisitos.setDays(configurableParametersRepository.findByName("DaysToInactive").getValue());
+		return requisitos;
+	}
 
 }

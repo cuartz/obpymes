@@ -6,7 +6,13 @@ import com.mx.santander.lh.obpymes.entities.Requirements;
 import com.mx.santander.lh.obpymes.excepciones.ObPymeServiceException;
 
 public interface ObtenRequisitosService {
-	@Retryable(maxAttempts=3,backoff = @Backoff(delay = 2000))
-	Requirements getRequisitos() throws ObPymeServiceException;
+	@Retryable(maxAttempts=3,backoff = @Backoff(delay = 500))
+	public Requirements getComditions() throws ObPymeServiceException;
+	@Retryable(maxAttempts=3,backoff = @Backoff(delay = 500))
+	public Requirements getDocumentos() throws ObPymeServiceException;
+	@Retryable(maxAttempts=3,backoff = @Backoff(delay = 500))
+	public Requirements getDays() throws ObPymeServiceException;
+	@Retryable(maxAttempts=3,backoff = @Backoff(delay = 500))
+	public Requirements getRequisitos() throws ObPymeServiceException;
 
 }

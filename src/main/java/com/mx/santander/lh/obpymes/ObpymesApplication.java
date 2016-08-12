@@ -11,7 +11,6 @@ import org.springframework.retry.annotation.EnableRetry;
 @SpringBootApplication
 @ComponentScan(basePackages={"com.mx.santander.lh.obpymes"})
 @EnableAutoConfiguration
-@EnableMongoRepositories
 public class ObpymesApplication {
 
 	public static void main(String[] args) {
