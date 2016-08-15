@@ -1,12 +1,10 @@
 package com.mx.santander.lh.obpymes.controllers;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,8 +13,6 @@ import com.google.gson.Gson;
 import com.mx.santander.lh.obpymes.entities.Conditions;
 import com.mx.santander.lh.obpymes.entities.ConfigurableParameters;
 import com.mx.santander.lh.obpymes.entities.Documents;
-import com.mx.santander.lh.obpymes.input.SecurityCodeNewIN;
-import com.mx.santander.lh.obpymes.output.SecurityCodeOUT;
 import com.mx.santander.lh.obpymes.repository.ConditionsRepository;
 import com.mx.santander.lh.obpymes.repository.ConfigurableParametersRepository;
 import com.mx.santander.lh.obpymes.repository.RequiredDocumentsRepository;

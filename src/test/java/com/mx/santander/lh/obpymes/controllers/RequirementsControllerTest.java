@@ -57,9 +57,6 @@ public class RequirementsControllerTest {
 			MockitoAnnotations.initMocks(this);
 			mockMvc= MockMvcBuilders.standaloneSetup(requirementsController).build();
 			Requirements requirements=new Requirements();
-			Requirements requirementsDocs=new Requirements();
-			Requirements requirementsConds=new Requirements();
-			Requirements requirementsDays=new Requirements();
 			List<Conditions> conditions=new ArrayList<Conditions>();
 			List<Documents> documents=new ArrayList<Documents>();
 			List<ConfigurableParameters> configurableParameters=new ArrayList<ConfigurableParameters>();
